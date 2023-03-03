@@ -7,13 +7,14 @@
   --text-color: black;
   --link-color: #0976a8;
   --border-color: #2a2a2a;
-
-  //  Dark theme
-  --dark-bg: var(--color-dark);
-  --dark-text-color: white;
-  --dark-line-color: var(--color-orange);
-  --dark-border-color: white;
 }
+
+//   //  Dark theme
+//   --dark-bg: var(--color-dark);
+//   --dark-text-color: white;
+//   --dark-line-color: var(--color-orange);
+//   --dark-border-color: white;
+// }
 
 $font-stack: "Signika Negative", sans-serif;
 
@@ -284,7 +285,7 @@ section {
     min-height: 7rem;
     border: 2px solid var(--border-color);
     border-radius: 100px;
-
+    cursor: pointer;
     justify-content: center;
     align-items: center;
 
@@ -347,11 +348,21 @@ section {
       }
     }
   }
+  .info-container:hover {
+    background: rgba(0, 0, 0, 0.107);
+    transform: scale(1.01);
+    .info-divider {
+      width: 2px;
+      height: 35px;
+      background-color: grey;
+    }
+  }
 }
 
+// section 3 starts
 // Skills Section------------
-
 //  Providing different color for each icons
+// first skills icons
 .section3 .skills-container .html5 i {
   color: #e34c26;
 }
@@ -376,11 +387,32 @@ section {
   color: blue;
 }
 
-// section 3 starts
+// second skills icons
+.section3 .skills-container2 .bootstrap i {
+  color: #0d6efd;
+}
+
+.section3 .skills-container2 .nodejs i {
+  color: #215732;
+}
+
+.section3 .skills-container2 .sass i {
+  color: #b37399aa;
+}
+
+.section3 .skills-container2 .java i {
+  color: #e31fbed6;
+}
+
+.section3 .skills-container2 .figma i {
+  color: #e34c26;
+}
+
+// section 3
 .section3 {
   .skills-container {
     justify-content: center;
-    gap: 8rem;
+    gap: 10rem;
 
     div {
       flex-direction: column;
@@ -395,20 +427,57 @@ section {
 
   @include laptop() {
     .skills-container {
-      gap: 4rem;
+      gap: 10rem;
     }
   }
 
   @include tablet() {
     .skills-container {
-      gap: 2.5rem;
+      gap: 4rem;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     div {
       i {
-        width: 4rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  // second skills icons
+  .skills-container2 {
+    margin-top: 3rem;
+    justify-content: center;
+    gap: 10rem;
+
+    div {
+      flex-direction: column;
+      align-items: center;
+      font-weight: 700;
+
+      i {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  @include laptop() {
+    .skills-container2 {
+      gap: 10rem;
+    }
+  }
+
+  @include tablet() {
+    .skills-container2 {
+      gap: 4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    div {
+      i {
+        width: 2rem;
       }
     }
   }
@@ -430,9 +499,22 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
     .project-card {
+      box-shadow: 5px 5px 12px black;
+
+      .btn-card {
+        align-self: center;
+        display: none;
+
+        button {
+          background: orange;
+          border: orange;
+          padding: 0.5rem;
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
       cursor: pointer;
       flex-direction: column;
-      box-shadow: 5px 4px 12px black;
 
       .top {
         img {
@@ -453,6 +535,12 @@ section {
             font-weight: bold;
           }
         }
+      }
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+      .btn-card {
+        display: block;
       }
     }
   }
